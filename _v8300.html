@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>十六两 · 徐州方言大集对招｜概念方案</title>
+<style>
+:root{
+  --ink:#17130e;
+  --ink2:#3d342a;
+  --ink3:#6b5f50;
+  --paper:#efe7d6;
+  --paper2:#e6dcc6;
+  --card:#f6f0e1;
+  --zhe:#9e3b2b;
+  --zhu:#c8331f;
+  --tong:#4c6b5a;
+  --mai:#a9832c;
+  --line:rgba(23,19,14,.16);
+  --font-d:"Songti SC","STSong","SimSun","Source Han Serif SC",serif;
+  --font-b:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  --font-k:"KaiTi","STKaiti","Kaiti SC","Songti SC",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--font-b);font-size:15px;line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 18% 12%,rgba(158,59,43,.05),transparent 45%),
+    radial-gradient(circle at 82% 78%,rgba(76,107,90,.05),transparent 45%);
+}
+.page{max-width:1060px;margin:0 auto;padding:0 34px 120px}
+@media(max-width:640px){.page{padding:0 20px 80px}}
+
+/* ---------- 顶部 ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;background:rgba(239,231,214,.92);
+  backdrop-filter:blur(6px);border-bottom:1px solid var(--line);
+}
+.topbar-in{max-width:1060px;margin:0 auto;padding:10px 34px;display:flex;align-items:center;gap:18px;
+  font-size:11.5px;letter-spacing:.14em;color:var(--ink3)}
+.topbar b{font-family:var(--font-d);font-size:13px;letter-spacing:.22em;color:var(--ink)}
+.topbar nav{margin-left:auto;display:flex;gap:16px;flex-wrap:wrap}
+.topbar a{color:var(--ink3);text-decoration:none;border-bottom:1px solid transparent;padding-bottom:1px}
+.topbar a:hover{color:var(--zhe);border-color:var(--zhe)}
+@media(max-width:820px){.topbar nav{display:none}}
+
+/* ---------- 封面 ---------- */
+.cover{padding:64px 0 30px;border-bottom:1px solid var(--ink)}
+.eyebrow{font-size:11px;letter-spacing:.34em;color:var(--zhe);text-transform:uppercase;margin-bottom:26px}
+.eyebrow span{color:var(--ink3)}
+.cover-title{
+  font-family:var(--font-d);font-weight:700;font-size:clamp(64px,13vw,132px);
+  line-height:.92;letter-spacing:.06em;margin:0 0 8px;position:relative;
+}
+.cover-title span{position:relative;z-index:2}
+.cover-title::after{
+  content:attr(data-t);position:absolute;left:5px;top:5px;z-index:1;
+  color:var(--zhu);opacity:.42;mix-blend-mode:multiply;
+}
+.cover-sub{font-family:var(--font-k);font-size:clamp(17px,2.4vw,23px);color:var(--ink2);letter-spacing:.18em;margin:14px 0 0}
+.cover-line{display:flex;gap:30px;flex-wrap:wrap;margin-top:44px;font-size:12px;letter-spacing:.1em;color:var(--ink3)}
+.cover-line div{border-top:1px solid var(--line);padding-top:8px;min-width:140px}
+.cover-line b{display:block;color:var(--ink);font-weight:600;letter-spacing:.06em;font-size:12.5px;margin-top:2px}
+
+/* ---------- 一句话 ---------- */
+.statement{
+  margin:46px 0 0;padding:38px 40px;background:var(--ink);color:var(--paper);
+  position:relative;overflow:hidden;
+}
+.statement::after{
+  content:"";position:absolute;right:-60px;bottom:-90px;width:280px;height:280px;
+  border:1px solid rgba(239,231,214,.16);border-radius:50%;
+}
+.statement .lab{font-size:10.5px;letter-spacing:.32em;color:rgba(239,231,214,.6);margin-bottom:16px}
+.statement p{
+  font-family:var(--font-d);font-size:clamp(19px,2.9vw,30px);line-height:1.72;
+  letter-spacing:.04em;margin:0;position:relative;z-index:2;
+}
+.statement em{font-style:normal;color:#e8b64a}
+.statement .alt{margin-top:22px;font-family:var(--font-b);font-size:12.5px;line-height:2;color:rgba(239,231,214,.62);letter-spacing:.02em}
+@media(max-width:640px){.statement{padding:26px 22px}}
+
+/* ---------- 章节 ---------- */
+section{padding:76px 0 0}
+.sec-head{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--ink);padding-bottom:10px;margin-bottom:34px}
+.sec-num{font-family:var(--font-d);font-size:12px;letter-spacing:.2em;color:var(--zhe);flex:none;padding-top:6px}
+.sec-title{font-family:var(--font-d);font-size:clamp(24px,3.6vw,34px);font-weight:700;letter-spacing:.05em;margin:0;line-height:1.3}
+.sec-note{margin-left:auto;font-size:11px;letter-spacing:.16em;color:var(--ink3);flex:none;padding-top:6px}
+@media(max-width:700px){.sec-note{display:none}}
+
+p.lead{font-size:16.5px;line-height:2;color:var(--ink2);max-width:74ch}
+p{margin:0 0 18px}
+.k{font-family:var(--font-k);color:var(--zhe);font-size:1.06em}
+
+/* ---------- 三决定 ---------- */
+.decide{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--ink);margin:34px 0 10px}
+.decide > div{padding:26px 24px;border-right:1px solid var(--line)}
+.decide > div:last-child{border-right:0}
+.decide .n{font-family:var(--font-d);font-size:11px;letter-spacing:.24em;color:var(--zhe);margin-bottom:14px}
+.decide h3{font-family:var(--font-d);font-size:19px;font-weight:700;margin:0 0 12px;letter-spacing:.04em}
+.decide p{font-size:13.5px;line-height:1.95;color:var(--ink2);margin:0}
+@media(max-width:820px){.decide{grid-template-columns:1fr}.decide > div{border-right:0;border-bottom:1px solid var(--line)}.decide > div:last-child{border-bottom:0}}
+
+.quote-block{
+  font-family:var(--font-k);font-size:17px;line-height:2.05;color:var(--ink2);
+  border-left:3px solid var(--zhe);padding:4px 0 4px 20px;margin:26px 0;max-width:70ch;
+}
+
+/* ---------- 场景事实 ---------- */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:30px 0 40px}
+.facts div{background:var(--card);padding:18px 16px}
+.facts b{display:block;font-family:var(--font-d);font-size:22px;letter-spacing:.02em;margin-bottom:4px}
+.facts span{font-size:11.5px;color:var(--ink3);letter-spacing:.08em}
+@media(max-width:820px){.facts{grid-template-columns:repeat(2,1fr)}}
+
+.levels{border-top:1px solid var(--line)}
+.lv{display:grid;grid-template-columns:56px 1fr 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
+.lv .idx{font-family:var(--font-d);font-size:26px;color:var(--zhe);opacity:.55;line-height:1}
+.lv h4{font-family:var(--font-d);font-size:17.5px;margin:0 0 6px;letter-spacing:.04em;font-weight:700}
+.lv h4 small{font-family:var(--font-b);font-weight:400;font-size:11.5px;color:var(--ink3);letter-spacing:.1em;margin-left:8px}
+.lv p{font-size:13.5px;margin:0;color:var(--ink2);line-height:1.9}
+.lv .how{font-size:13px;color:var(--zhe);border-left:1px solid var(--line);padding-left:18px}
+@media(max-width:700px){.lv{grid-template-columns:40px 1fr}.lv .how{grid-column:2;border-left:0;padding-left:0;margin-top:8px}}
+
+/* ---------- 四声 ---------- */
+.tones{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 6px}
+.tone{
+  background:var(--card);border:1px solid var(--ink);padding:18px 16px 20px;cursor:pointer;
+  transition:transform .18s cubic-bezier(.9,0,.1,1),box-shadow .18s;
+  position:relative;overflow:hidden;
+}
+.tone:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 rgba(23,19,14,.13)}
+.tone.on{background:var(--ink);color:var(--paper)}
+.tone.on .t-name,.tone.on .t-val,.tone.on .t-skill{color:var(--paper)}
+.tone.on .t-desc{color:rgba(239,231,214,.72)}
+.tone .t-cls{font-size:10.5px;letter-spacing:.24em;color:var(--zhe)}
+.tone.on .t-cls{color:#e8b64a}
+.t-name{font-family:var(--font-d);font-size:24px;font-weight:700;letter-spacing:.1em;margin:6px 0 2px}
+.t-val{font-size:11px;letter-spacing:.18em;color:var(--ink3)}
+.t-skill{font-family:var(--font-k);font-size:15px;color:var(--zhe);margin:10px 0 4px;letter-spacing:.06em}
+.t-desc{font-size:12px;line-height:1.85;color:var(--ink3);min-height:66px}
+.tone svg{display:block;margin:8px 0 6px;width:100%;height:46px}
+.tone .draw{stroke:var(--ink);stroke-width:2.2;fill:none;stroke-linecap:square}
+.tone.on .draw{stroke:#e8b64a}
+.tone .axis{stroke:rgba(23,19,14,.16);stroke-width:1;stroke-dasharray:2 3}
+.tone.on .axis{stroke:rgba(239,231,214,.2)}
+@media(max-width:860px){.tones{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.tones{grid-template-columns:1fr}}
+
+/* ---------- 表格 ---------- */
+.table-wrap{overflow-x:auto;border:1px solid var(--ink);margin:24px 0 8px}
+table{border-collapse:collapse;width:100%;min-width:840px;font-size:13px}
+th,td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.75}
+th{background:var(--ink);color:var(--paper);font-weight:500;font-size:11px;letter-spacing:.16em;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td:nth-child(1){font-family:var(--font-d);font-size:16px;font-weight:700;white-space:nowrap;letter-spacing:.06em}
+td:nth-child(2){color:var(--ink3);font-size:12.5px}
+td:nth-child(3){color:var(--zhe);white-space:nowrap;font-size:12.5px}
+tbody tr:hover td{background:rgba(158,59,43,.045)}
+.tag{display:inline-block;font-size:10px;letter-spacing:.12em;padding:1px 7px;border:1px solid currentColor;margin-right:6px;color:var(--tong)}
+.tag.core{color:var(--zhe)}
+
+/* ---------- 秤星 ---------- */
+.scale-box{display:grid;grid-template-columns:1fr 340px;gap:0;border:1px solid var(--ink);margin:26px 0}
+.scale-main{padding:30px 32px;background:var(--card);border-right:1px solid var(--line)}
+.scale-side{padding:30px 26px;font-size:12.5px;line-height:1.95;color:var(--ink2)}
+.scale-side h4{font-family:var(--font-d);font-size:15px;margin:0 0 10px;letter-spacing:.06em}
+.scale-side p{margin:0 0 12px;font-size:12.5px}
+.stars{display:flex;align-items:flex-end;gap:0;flex-wrap:wrap;margin:8px 0 4px;min-height:34px}
+.grp{display:flex;gap:7px;padding:0 12px;border-right:1px dashed var(--line)}
+.grp:first-child{padding-left:0}
+.grp:last-child{border-right:0}
+.star{
+  width:15px;height:15px;background:var(--ink);
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+  transition:all .3s ease;
+}
+.star.off{background:rgba(23,19,14,.13)}
+.star.hit{background:var(--zhu);transform:scale(1.5);filter:drop-shadow(0 0 6px rgba(200,51,31,.5))}
+.grp-lab{font-size:10px;letter-spacing:.16em;color:var(--ink3);margin-top:8px}
+.scale-cap{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.14em;color:var(--ink3);margin-top:18px;border-top:1px solid var(--line);padding-top:10px}
+.pole{margin:22px 0 6px;position:relative;height:56px}
+.pole svg{width:100%;height:56px;display:block}
+.btn{
+  font-family:var(--font-b);font-size:12px;letter-spacing:.1em;padding:7px 16px;cursor:pointer;
+  background:transparent;border:1px solid var(--ink);color:var(--ink);transition:.15s;
+}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.red{border-color:var(--zhe);color:var(--zhe)}
+.btn.red:hover{background:var(--zhe);color:var(--paper)}
+.btn:disabled{opacity:.3;cursor:not-allowed}
+.btn:disabled:hover{background:transparent;color:var(--ink)}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+@media(max-width:860px){.scale-box{grid-template-columns:1fr}.scale-main{border-right:0;border-bottom:1px solid var(--line)}}
+
+/* ---------- 状态标签墙 ---------- */
+.states{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 30px}
+.st{font-size:12.5px;padding:5px 12px;border:1px solid var(--line);background:var(--card);letter-spacing:.06em}
+.st b{font-family:var(--font-d);color:var(--zhe);font-weight:700;margin-right:6px}
+.st small{color:var(--ink3);font-size:11px}
+
+/* ---------- 色板 ---------- */
+.palette{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+.sw{height:104px;display:flex;flex-direction:column;justify-content:flex-end;padding:10px 11px;font-size:10.5px;letter-spacing:.08em}
+.sw b{display:block;font-family:var(--font-d);font-size:13px;letter-spacing:.12em;margin-bottom:2px}
+@media(max-width:760px){.palette{grid-template-columns:repeat(3,1fr)}}
+
+/* ---------- 规则 ---------- */
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:0 40px;margin:24px 0}
+.rule{padding:16px 0;border-bottom:1px solid var(--line);display:flex;gap:16px}
+.rule .rn{font-family:var(--font-d);color:var(--zhe);font-size:12px;letter-spacing:.14em;flex:none;padding-top:3px}
+.rule h4{font-family:var(--font-d);font-size:16px;margin:0 0 6px;letter-spacing:.04em}
+.rule p{font-size:12.5px;line-height:1.9;color:var(--ink3);margin:0}
+@media(max-width:760px){.rules{grid-template-columns:1fr}}
+
+/* ---------- 节奏 ---------- */
+.timeline{border:1px solid var(--ink);margin:24px 0}
+.tl-row{display:grid;grid-template-columns:120px 1fr;border-bottom:1px solid var(--line)}
+.tl-row:last-child{border-bottom:0}
+.tl-row > div:first-child{padding:14px 16px;background:var(--card);font-size:12px;letter-spacing:.1em;border-right:1px solid var(--line);color:var(--ink2)}
+.tl-row > div:last-child{padding:14px 18px;font-size:12.5px;line-height:1.85;color:var(--ink2)}
+.tl-row em{font-style:normal;color:var(--zhe);font-weight:600}
+
+/* ---------- 试打一局 ---------- */
+.game{border:1px solid var(--ink);margin:26px 0 8px;background:var(--card)}
+.game-top{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.16em;color:var(--ink3)}
+.game-stage{display:grid;grid-template-columns:1fr 200px 1fr;align-items:center;gap:0;padding:32px 22px;min-height:200px;border-bottom:1px solid var(--line);position:relative;background:
+  repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(23,19,14,.04) 39px,rgba(23,19,14,.04) 40px)}
+.side{text-align:center}
+.side .who{font-size:10.5px;letter-spacing:.26em;color:var(--ink3);margin-bottom:8px}
+.side .face{font-family:var(--font-d);font-size:38px;line-height:1;letter-spacing:.1em}
+.side .say{font-family:var(--font-k);font-size:14px;color:var(--zhe);margin-top:12px;min-height:24px;letter-spacing:.04em}
+.pivot{text-align:center}
+.pivot .quote{font-family:var(--font-d);font-size:30px;letter-spacing:.02em;transition:color .2s}
+.pivot .q-lab{font-size:10px;letter-spacing:.22em;color:var(--ink3)}
+.pivot .beam{height:3px;background:var(--ink);margin:12px auto 8px;width:120px;transition:transform .5s cubic-bezier(.9,0,.1,1);transform-origin:center}
+.game-bars{padding:16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:22px;border-bottom:1px solid var(--line)}
+.bar-lab{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.14em;color:var(--ink3);margin-bottom:6px}
+.bar{height:9px;background:rgba(23,19,14,.1);position:relative;overflow:hidden}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--ink);transition:width .4s cubic-bezier(.9,0,.1,1)}
+.bar.m i{background:var(--zhe)}
+.moves{padding:16px 20px;display:flex;gap:8px;flex-wrap:wrap}
+.game-log{padding:14px 20px 20px;font-size:12.5px;line-height:1.95;color:var(--ink2);min-height:80px;border-top:1px solid var(--line)}
+.game-log p{margin:0 0 3px}
+.game-log .hl{color:var(--zhe);font-family:var(--font-d);letter-spacing:.04em}
+@media(max-width:760px){
+  .game-stage{grid-template-columns:1fr;gap:18px;padding:22px}
+  .game-bars{grid-template-columns:1fr}
+}
+
+/* ---------- 分镜 ---------- */
+.eps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
+.ep{border:1px solid var(--line);padding:18px;background:var(--card)}
+.ep .en{font-size:10px;letter-spacing:.2em;color:var(--zhe);margin-bottom:8px}
+.ep h4{font-family:var(--font-d);font-size:17px;margin:0 0 8px;letter-spacing:.05em}
+.ep p{font-size:12.5px;line-height:1.85;color:var(--ink3);margin:0}
+@media(max-width:760px){.eps{grid-template-columns:1fr}}
+
+.forms{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+.form{background:var(--card);padding:22px}
+.form h4{font-family:var(--font-d);font-size:16px;margin:0 0 8px;letter-spacing:.05em}
+.form p{font-size:12.5px;color:var(--ink3);line-height:1.9;margin:0 0 8px}
+.form .pick{font-size:11px;letter-spacing:.14em;color:var(--zhe);border-top:1px solid var(--line);padding-top:8px;display:block}
+@media(max-width:700px){.forms{grid-template-columns:1fr}}
+
+.checklist{border:1px solid var(--zhe);padding:26px 28px;background:rgba(158,59,43,.04);margin:26px 0}
+.checklist h3{font-family:var(--font-d);font-size:17px;margin:0 0 14px;letter-spacing:.06em;color:var(--zhe)}
+.checklist ul{margin:0;padding-left:18px;font-size:13px;line-height:2.1;color:var(--ink2)}
+.checklist li::marker{color:var(--zhe)}
+
+footer{margin-top:80px;border-top:1px solid var(--ink);padding-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:11px;letter-spacing:.14em;color:var(--ink3)}
+</style>
+<style>body{position:relative;top:-8300px}</style></head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <b>十六两</b>
+    <span>徐州方言 · 大集对招</span>
+    <nav>
+      <a href="#s1">定位</a>
+      <a href="#s2">场景</a>
+      <a href="#s3">四声四招</a>
+      <a href="#s4">词库</a>
+      <a href="#s5">秤星</a>
+      <a href="#s6">视觉</a>
+      <a href="#s7">试打</a>
+      <a href="#s8">落地</a>
+    </nav>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ================= 封面 ================= -->
+<header class="cover">
+  <div class="eyebrow">徐州方言 ⋅ 动态可视化 <span>／ 概念方案 v1 ⋅ 不照搬</span></div>
+  <h1 class="cover-title" data-t="十六两"><span>十六两</span></h1>
+  <div class="cover-sub">一斤十六两，一句一招</div>
+
+  <div class="cover-line">
+    <div>场景<b>铜山 · 马山大集</b></div>
+    <div>语言原型<b>中原官话 徐淮片</b></div>
+    <div>核心装置<b>一杆老秤</b></div>
+    <div>形态<b>竖屏短片 × H5 对招</b></div>
+  </div>
+
+  <div class="statement">
+    <div class="lab">CORE STATEMENT ／ 一句话</div>
+    <p>徐州人不绕弯：<em>四声就是四招</em>，秤星就是血条——<br>谁短了斤两，谁就掉自己的福禄寿。</p>
+    <div class="alt">
+      备选 A：把砍价打成一场四声对决——声调是招式，秤星是血条，敞亮是输赢。<br>
+      备选 B：在徐州大集的秤杆上，一句方言值一两面子，也值一条命。
+    </div>
+  </div>
+</header>
+
+<!-- ================= 01 定位 ================= -->
+<section id="s1">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <h2 class="sec-title">先不照搬：杭州那件是「绕」，徐州是「直」</h2>
+    <div class="sec-note">POSITIONING</div>
+  </div>
+
+  <p class="lead">杭州话那件的底层逻辑是“用一个天然对抗的生活场景，把方言翻译成游戏语法”。这个框架很硬，可以继承。但它真正的节奏来自吴语的性格：<span class="k">软、留余地、来回试探</span>——所以它能做成“磨血条”，一句一句往下磨。</p>
+
+  <p class="lead">徐州话是反的。<span class="k">亮底、直给、一句顶三句</span>。在马山大集上，真正的砍价往往只有三五个来回：他把价报死，你把他问住，他说“拿走吧”。你如果照搬“慢慢磨”的血条，最徐州的那部分——<span class="k">一句定生死</span>——就没了。</p>
+
+  <div class="quote-block">“杭州是两个人绕着圈试探，徐州是两个人面对面把牌摊在秤盘上。<br>所以杭州的视觉是曲线和缠绕，徐州的视觉必须是<strong>直线、硬边、一拍定</strong>。”</div>
+
+  <p>基于这个判断，我只继承三件事，其余全部换掉：</p>
+
+  <div class="decide">
+    <div>
+      <div class="n">决定 一</div>
+      <h3>不做消耗战，做「清算」</h3>
+      <p>不设长血条慢慢磨，设“三五句之内必须见分晓”。伤害高、回合短、留白大。节奏靠近<b>戏曲的“急急风”</b>，而不是格斗游戏的连招表。视觉上靠“停一拍”制造重量，不靠特效堆量。</p>
+    </div>
+    <div>
+      <div class="n">决定 二</div>
+      <h3>不用血条，用「十六两秤星」</h3>
+      <p>老秤一斤十六两＝<b>南斗六星 ＋ 北斗七星 ＋ 福禄寿三星</b>。民间规矩：短一两损福，短二两伤禄，短三两折寿。血条于是不再是一个借来的游戏零件，它本身<b>就是一场道德审判</b>。这是全案真正的支点。</p>
+    </div>
+    <div>
+      <div class="n">决定 三</div>
+      <h3>不做词典，做「方言即操作」</h3>
+      <p>方言词不弹注释、不做科普角标。它就是按键：说得出，打得中；说不对调，招式直接哑火。年轻人不是“被教育”了方言，而是<b>为了赢，不得不学会那个调</b>。这是“去土味”的唯一有效路径。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 场景 ================= -->
+<section id="s2">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <h2 class="sec-title">场景：不是菜市场，是一杆秤和五个摊</h2>
+    <div class="sec-note">SETTING</div>
+  </div>
+
+  <p class="lead">场景留在<span class="k">马山大集</span>，但重心从“菜市场”移到“<span class="k">秤</span>”。菜市场只是地点，秤才是规则——砍价本质是斤两之争，而秤是场上唯一的裁判，也是唯一的法器。镜头从此就钉死在摊前那杆秤上：<b>秤杆＝价格，秤星＝心气，秤砣＝裁决</b>。</p>
+
+  <div class="facts">
+    <div><b>300+</b><span>固定摊位 · 分区经营</span></div>
+    <div><b>04:00</b><span>牛羊肉开市 · 行家对行家</span></div>
+    <div><b>15:00</b><span>陆续收摊 · 天然的倒计时</span></div>
+    <div><b>地铁1号线</b><span>杏山子站 · 市区最近的露天集</span></div>
+  </div>
+
+  <p>选它的理由不是“有乡土气”，而是：它是<b>离市区最近的露天大集</b>，也是年轻人还会专程坐地铁来的地方。方言在这里还活着，而且有观众——<b>“敞亮不敞亮”是要被人看着评的</b>。这一点直接决定了博弈的第三种资源：面子。</p>
+
+  <p>五个摊＝五个关卡，每个摊主是一套完全不同的“打法”，而不是换皮怪：</p>
+
+  <div class="levels">
+    <div class="lv">
+      <div class="idx">壹</div>
+      <div>
+        <h4>羊肉摊 · 一刀准<small>凌晨四点开市</small></h4>
+        <p>刀起刀落，报一次价，不还口。他不用话术，他用“不接话”压你。你越想解释，越显得虚。</p>
+      </div>
+      <div class="how">→ 他的招是「顶」（阳平·高平）。你唯一的机会是<b>比他更不接话</b>，或者用「一锤子」赌一把转身就走。</div>
+    </div>
+    <div class="lv">
+      <div class="idx">贰</div>
+      <div>
+        <h4>自卖头 · 自家种的<small>农户直销区</small></h4>
+        <p>“这都是今早才摘的，你看这土还湿着呢。”她不跟你谈价，她跟你谈雨、谈旱、谈她凌晨三点起的床。</p>
+      </div>
+      <div class="how">→ 她是<b>人情流</b>。砍价无效，硬招反弹。「拉呱」是唯一正解：先陪她聊三句，她会自己把零头抹了。</div>
+    </div>
+    <div class="lv">
+      <div class="idx">叁</div>
+      <div>
+        <h4>炸丸子 · 油锅西施<small>小吃区</small></h4>
+        <p>嘴比油还快。你一句话没说完，她已经问了你三个问题。语速就是她的攻击力。</p>
+      </div>
+      <div class="how">→ 你的招会被“打断”。必须先「白Zao我」截断她的节奏，才能出下一招。<b>先破节奏，再破价。</b></div>
+    </div>
+    <div class="lv">
+      <div class="idx">肆</div>
+      <div>
+        <h4>杂货摊 · 老抠<small>杂货区</small></h4>
+        <p>“进价就这个数，我真不挣你钱。”报价虚高两成，最会绕，最怕被当场戳穿。</p>
+      </div>
+      <div class="how">→ 虚报价是<b>可识破</b>的：他的调会飘（阳平顶不住，掉成去声）。听出来，一句「白Zao我」，反弹全部虚高部分。</div>
+    </div>
+    <div class="lv">
+      <div class="idx">伍</div>
+      <div>
+        <h4>收摊前 · 最后一把<small>下午三点</small></h4>
+        <p>日头压着，货剩不多，他急你不急。这是全场赔率最高的一局，也是唯一“捡漏”的机会。</p>
+      </div>
+      <div class="how">→ 时间资源见底时解锁。「一锤子」的伤害翻倍，但你只有一次机会，输了就散集。</div>
+    </div>
+  </div>
+
+  <p style="margin-top:28px;font-size:13px;color:var(--ink3)">两个不上场的角色，负责节奏与规则：<b>修秤摊的老匠人</b>（“司维”技能的来源，也是唯一能给你补秤星的人）与<b>磨香油的老头</b>（旁白，说话极慢，每次出场都把节奏拽停三秒——用来做“留白”，避免全片一味快）。</p>
+</section>
+
+<!-- ================= 03 四声四招 ================= -->
+<section id="s3">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <h2 class="sec-title">四声四招：声调的形状，就是兵器的形状</h2>
+    <div class="sec-note">TONE → MOVE</div>
+  </div>
+
+  <p class="lead">这是全案唯一“不可翻译”的部分，也是它区别于任何方言海报的地方。徐州话四声的实测调值是 <b>阴平 213 ／ 阳平 55 ／ 上声 35 ／ 去声 51</b>；普通话是 55 ／ 35 ／ 214 ／ 51。差别不在“音色”，在<span class="k">形状</span>——徐州话没有普通话上声那个“先沉到底再挑起来”的深坑（214），换成了低起缓挑（213）；阳平不是往上走，是一条顶平的高线；上声一路往上挑；去声从最高一砸到底。</p>
+
+  <p style="font-size:13.5px;color:var(--ink3)">点一下每一招，看它长什么样 ↓</p>
+
+  <div class="tones" id="tones">
+    <div class="tone" data-k="0">
+      <div class="t-cls">阴平 213</div>
+      <div class="t-name">沉</div>
+      <div class="t-val">低降 · 缓挑</div>
+      <svg viewBox="0 0 130 60" preserveAspectRatio="none">
+        <line class="axis" x1="8" y1="12" x2="122" y2="12"/>
+        <line class="axis" x1="8" y1="30" x2="122" y2="30"/>
+        <line class="axis" x1="8" y1="48" x2="122" y2="48"/>
+        <path class="draw" d="M8,26 C30,26 34,52 54,52 C74,52 92,40 122,30"/>
+      </svg>
+      <div class="t-skill">「沉底价」</div>
+      <div class="t-desc">先把自己压到最低，再慢慢往上抬。开局第一招：报一个低到不讲理的价，把整局的底锚死。</div>
+    </div>
+
+    <div class="tone" data-k="1">
+      <div class="t-cls">阳平 55</div>
+      <div class="t-name">顶</div>
+      <div class="t-val">高平 · 不落</div>
+      <svg viewBox="0 0 130 60" preserveAspectRatio="none">
+        <line class="axis" x1="8" y1="12" x2="122" y2="12"/>
+        <line class="axis" x1="8" y1="30" x2="122" y2="30"/>
+        <line class="axis" x1="8" y1="48" x2="122" y2="48"/>
+        <path class="draw" d="M8,14 L122,13"/>
+      </svg>
+      <div class="t-skill">「顶回去」</div>
+      <div class="t-desc">不解释、不还价，只把他的话原样顶回去。高平的一条线，谁先落谁先虚。这是防守，也是拖时间。</div>
+    </div>
+
+    <div class="tone" data-k="2">
+      <div class="t-cls">上声 35</div>
+      <div class="t-name">挑</div>
+      <div class="t-val">低起 · 上挑</div>
+      <svg viewBox="0 0 130 60" preserveAspectRatio="none">
+        <line class="axis" x1="8" y1="12" x2="122" y2="12"/>
+        <line class="axis" x1="8" y1="30" x2="122" y2="30"/>
+        <line class="axis" x1="8" y1="48" x2="122" y2="48"/>
+        <path class="draw" d="M8,44 C40,42 80,24 122,12"/>
+      </svg>
+      <div class="t-skill">「挑一句」</div>
+      <div class="t-desc">夸一句、反问一句，把他架上去。人被架高了，话就松了。破防用，但会让他恼、把价往回抬。</div>
+    </div>
+
+    <div class="tone" data-k="3">
+      <div class="t-cls">去声 51</div>
+      <div class="t-name">砸</div>
+      <div class="t-val">高起 · 直落</div>
+      <svg viewBox="0 0 130 60" preserveAspectRatio="none">
+        <line class="axis" x1="8" y1="12" x2="122" y2="12"/>
+        <line class="axis" x1="8" y1="30" x2="122" y2="30"/>
+        <line class="axis" x1="8" y1="48" x2="122" y2="48"/>
+        <path class="draw" d="M8,12 C44,16 78,40 122,50"/>
+      </svg>
+      <div class="t-skill">「一锤子」</div>
+      <div class="t-desc">拍板，或者转身走。从最高点一刀砸到底，不拖尾。伤害最高，也最容易把“敞亮”输光。</div>
+    </div>
+  </div>
+
+  <p style="margin-top:26px">四招之外还有一层：<b>普通话与徐州话的切换</b>。用普通话出招，动作是对的、伤害减半；切成徐州调，同一句话招式“变形”——沉底价真的沉下去，顶回去真的顶成一条平线。玩家于是明白：<span class="k">方言不是口音，是四种不同的手感</span>。</p>
+</section>
+
+<!-- ================= 04 词库 ================= -->
+<section id="s4">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <h2 class="sec-title">词 → 招：方言元素的游戏身份对照表</h2>
+    <div class="sec-note">MAPPING</div>
+  </div>
+
+  <p class="lead">原则只有一条：<b>每个词必须对应一个“操作”，不能只对应一个“解释”</b>。解释会被划走，操作会被记住。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>方言元素</th>
+          <th>语言事实</th>
+          <th>游戏身份</th>
+          <th>数值 / 机制</th>
+          <th>动效语言</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>办肆<small style="font-size:10px;color:var(--tong);display:block">bàn sì</small></td>
+          <td>厉害、到位、够意思；也是竖起大拇指那一声“办肆！”</td>
+          <td><span class="tag core">终结技</span>加冕</td>
+          <td>伤害全案最高。但触发条件极苛：必须对方<b>先露底</b>、且你必须<b>认下这个价</b>。全场叫好、敞亮回满，然后你按他的价买走——<b>赞美即认输</b>。</td>
+          <td>秤砣垂直落下、秤杆弹直；全场静止一拍（约 300ms），随后才爆出人声。所有粒子同时消失，只留一个朱红“肆”字凿在画面上。</td>
+        </tr>
+        <tr>
+          <td>白Zao我</td>
+          <td>别骗我、别糊弄我（“Zao”本字待考，见校准清单）</td>
+          <td><span class="tag core">反制</span>拆招</td>
+          <td>识破型技能。对方报价里若有虚高，一句拆穿，把<b>虚高部分原样反弹</b>回去，并扣对方「福」一颗。<b>前提：你得听出他调飘了。</b></td>
+          <td>对方嘴边那个“价”字瞬间碎成墨渣落地；秤杆剧烈回摆三次，第三次才停。</td>
+        </tr>
+        <tr>
+          <td>黄子</td>
+          <td>东西（泛指，什么都能叫“黄子”）</td>
+          <td><span class="tag core">对象</span>命名权</td>
+          <td>界面上所有商品一律显示为“黄子”，不写真名。你能叫出它到底是什么（羊肉／羊盘肠／馓子／蒲包豆腐），命中率翻倍——<b>认得货，才砍得动价</b>。</td>
+          <td>商品被一块墨方盖住；认对时墨方沿一刀斜线裂开，露出一个汉刻符。</td>
+        </tr>
+        <tr>
+          <td>司维</td>
+          <td>修理、拾掇（修车、修鞋、修秤、修拉链）</td>
+          <td><span class="tag core">修复</span>装备</td>
+          <td>全场唯一的“回血”，而且要花钱：补一颗秤星，报价随之回涨。也可以“司维”自己——把被油锅溅坏的鞋修好，换回移动力。</td>
+          <td>俯拍：一双粗手拧螺丝、校秤星；扳手一转，秤星一颗一颗点亮，慢、稳、不说话。</td>
+        </tr>
+        <tr>
+          <td>拉呱</td>
+          <td>聊天、唠</td>
+          <td><span class="tag core">续航</span>情报</td>
+          <td>跟旁边大爷聊三句，得到“行情”（别家卖多少）＝下一招必定命中；同时拖时间。但日头在走，<b>拉久了，好货没了</b>。</td>
+          <td>云气纹从两人之间长出来，越拉越长，绕住整个摊位；日影在画面上方缓慢横移一格。</td>
+        </tr>
+        <tr>
+          <td>一锤子</td>
+          <td>（行为，非固定词）拍板、走人</td>
+          <td><span class="tag">处决</span></td>
+          <td>去声 51 的具身化。心气见底时使用＝成交；否则＝掀桌，敞亮重扣、这一集直接崩。</td>
+          <td>手起、掌落，落在秤盘上；画面整体横向抽 4px、黑帧 2 帧。</td>
+        </tr>
+        <tr style="background:rgba(76,107,90,.045)">
+          <td>管 / 不管</td>
+          <td>行 / 不行。最简的肯定与否定</td>
+          <td><span class="tag">格挡</span></td>
+          <td>一字封口。挡住对方一次连续进攻（尤其克制炸丸子的语速流），不消耗回合。</td>
+          <td>一个“管”字像一枚印，横着盖在对方话上，对方字幕被封住 0.4 秒。</td>
+        </tr>
+        <tr style="background:rgba(76,107,90,.045)">
+          <td>恣儿</td>
+          <td>舒服、得劲、心里美</td>
+          <td><span class="tag">增益</span></td>
+          <td>状态 buff：心情好，砍价更准，下一招命中率 +30%。吃一口刚出锅的炸丸子即触发。</td>
+          <td>整屏泛起一层极淡的麦黄，所有线条的抖动静止下来——唯一“不动”的 2 秒。</td>
+        </tr>
+        <tr style="background:rgba(76,107,90,.045)">
+          <td>腌臜 / 恶影</td>
+          <td>脏、膈应、心里犯恶心</td>
+          <td><span class="tag">减益</span></td>
+          <td>被短秤、被掉包后触发：命中率下降，且无法使用「办肆」——心里膈应，就说不出口那句夸。</td>
+          <td>画面被一层浊墨从边缘往里洇，秤星蒙尘，需要「司维」才能擦净。</td>
+        </tr>
+        <tr style="background:rgba(76,107,90,.045)">
+          <td>麻爪</td>
+          <td>手忙脚乱、不知如何是好</td>
+          <td><span class="tag">硬直</span>负面态</td>
+          <td>被三连问打断时的僵直：0.8 秒内不能出招。新手最常见死法。</td>
+          <td>角色双手僵在半空，手指一根一根绷直，像石刻上的凿痕。</td>
+        </tr>
+        <tr style="background:rgba(76,107,90,.045)">
+          <td>摞挑子</td>
+          <td>不干了、撂下不管</td>
+          <td><span class="tag">退场</span></td>
+          <td>摊主专用。心气归零但价格没谈拢时的体面收场——他不卖了，你也没赢。</td>
+          <td>围裙一解、往摊上一搭；镜头不追，让他走出画。</td>
+        </tr>
+        <tr style="background:rgba(76,107,90,.045)">
+          <td>齐整 / 板正</td>
+          <td>漂亮、端正、像样</td>
+          <td><span class="tag">挑刺</span>正话反用</td>
+          <td>“这黄子不齐整啊。”用夸奖的句式说挑刺的话，是徐州式最狠的一刀——对方不好发火，只能让价。</td>
+          <td>手指沿货物边缘划一道，划到哪里，哪里就浮出一条更直的墨线。</td>
+        </tr>
+        <tr style="background:rgba(76,107,90,.045)">
+          <td>半熟</td>
+          <td>不懂事、愣头青</td>
+          <td><span class="tag">开局</span>debuff</td>
+          <td>玩家初始状态。前三句只要说错调，就会被叫“半熟”，敞亮直接扣半。</td>
+          <td>角色头顶浮一个歪的“熟”字，笔画缺一半，随剧情慢慢补齐。</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="font-size:11.5px;color:var(--ink3);letter-spacing:.04em">表格下半部分（灰底）为扩展词，建议由本地语言顾问复核后再定字与用法；上半部分六个词为用户已确认素材。</p>
+</section>
+
+<!-- ================= 05 秤星 ================= -->
+<section id="s5">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <h2 class="sec-title">血条：十六颗秤星，就是三条命</h2>
+    <div class="sec-note">HP SYSTEM</div>
+  </div>
+
+  <p class="lead">老秤一斤十六两，不是随便分的：<b>北斗七星主死、南斗六星主生、再加福禄寿三星</b>。做秤的师傅把这十六颗星钉在秤杆上，也是钉了一条规矩——<span class="k">短一两损福，短二两伤禄，短三两折寿</span>。所以这件作品的“血条”不是抄来的 HP，它是一杆秤，也是一个报应系统。</p>
+
+  <div class="scale-box">
+    <div class="scale-main">
+      <div style="font-size:10.5px;letter-spacing:.22em;color:var(--ink3);margin-bottom:14px">秤杆 · 十六星 · 对方心气</div>
+      <div class="stars" id="stars"></div>
+      <div style="display:flex;gap:0;font-size:10px;letter-spacing:.14em;color:var(--ink3)">
+        <div style="padding-right:12px;width:133px">北斗七星 · 死</div>
+        <div style="padding:0 12px;border-left:1px dashed var(--line);width:126px">南斗六星 · 生</div>
+        <div style="padding-left:12px;border-left:1px dashed var(--line)">福 · 禄 · 寿</div>
+      </div>
+
+      <div class="pole">
+        <svg viewBox="0 0 600 56" preserveAspectRatio="none">
+          <line x1="20" y1="46" x2="580" y2="46" stroke="rgba(23,19,14,.2)" stroke-width="1" stroke-dasharray="3 4"/>
+          <g id="beamG" style="transform-origin:300px 30px;transform:rotate(-4deg);transition:transform .55s cubic-bezier(.9,0,.1,1)">
+            <line x1="40" y1="30" x2="560" y2="30" stroke="#17130e" stroke-width="4"/>
+            <circle cx="300" cy="30" r="5" fill="#17130e"/>
+            <circle cx="120" cy="30" r="2.6" fill="#17130e"/>
+            <circle cx="180" cy="30" r="2.6" fill="#17130e"/>
+            <circle cx="240" cy="30" r="2.6" fill="#17130e"/>
+            <circle cx="360" cy="30" r="2.6" fill="#17130e"/>
+            <circle cx="420" cy="30" r="2.6" fill="#17130e"/>
+            <circle cx="510" cy="30" r="9" fill="none" stroke="#9e3b2b" stroke-width="3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="scale-cap"><span>杆翘 ＝ 报价虚高</span><span>杆平 ＝ 公道</span><span>杆沉 ＝ 你占了便宜</span></div>
+
+      <div class="btn-row">
+        <button class="btn red" id="btnShort">短一两（摊主动手）</button>
+        <button class="btn" id="btnResetStar">重新校秤</button>
+      </div>
+    </div>
+
+    <div class="scale-side">
+      <h4>三层血条，三种输法</h4>
+      <p><b>① 秤星（16 格）＝ 对方心气。</b>掉光＝他松口，可出「办肆」终结。但注意：心气掉光不等于你赢，只是他愿意听你说最后一句。</p>
+      <p><b>② 敞亮值＝你的面子。</b>围观的人在看。掉到 0＝“掉面儿”，这一集直接输，与价格无关。</p>
+      <p><b>③ 福禄寿＝对方的天理。</b>只有被抓到短秤才会掉，且不可恢复。三颗全暗＝摊主当天收摊走人，全场的价都对你关上——这是隐藏的最坏结局。</p>
+      <p style="color:var(--zhe)">设计要点：<b>让“输”有三种完全不同的痛感</b>，而不是只有一条血条归零。</p>
+    </div>
+  </div>
+
+  <p style="margin-top:8px;font-size:13.5px;color:var(--ink3)">对抗状态标签（UI 上的小字，全部用方言，不配注释）：</p>
+  <div class="states">
+    <div class="st"><b>绷住</b><small>死撑不松口 · 防御 +</small></div>
+    <div class="st"><b>上脸</b><small>恼了 · 伤害 + 命中 −</small></div>
+    <div class="st"><b>虚了</b><small>心气见底 · 可被终结</small></div>
+    <div class="st"><b>装憨</b><small>降低警惕 · 下一招 ×1.5</small></div>
+    <div class="st"><b>服软</b><small>松口 · 解锁「办肆」</small></div>
+    <div class="st"><b>拿捏</b><small>你占据主动 · 全场看着</small></div>
+    <div class="st"><b>掉面儿</b><small>敞亮归零 · 直接判负</small></div>
+    <div class="st"><b>短秤</b><small>被抓 · 福禄寿 −1</small></div>
+    <div class="st"><b>敞亮</b><small>增益 · 招招加成</small></div>
+    <div class="st"><b>麻爪</b><small>硬直 · 不能出招</small></div>
+  </div>
+</section>
+
+<!-- ================= 06 视觉 ================= -->
+<section id="s6">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <h2 class="sec-title">视觉语言：不做旧，做「错版」</h2>
+    <div class="sec-note">VISUAL LANGUAGE</div>
+  </div>
+
+  <p class="lead">汉画像石最大的诱惑，是做旧——拓片、斑驳、宣纸、飞白。但这恰恰是“土”的来源：<span class="k">做旧是在模仿时间，年轻人不买时间的账</span>。我的主张是反过来：把汉画像石当作一套<b>矢量语言</b>来处理，用丝网／Riso 双色套印的“错版”感，让它看起来像今天印的，而不是像从墓里挖出来的。</p>
+
+  <p style="font-family:var(--font-k);font-size:16px;color:var(--zhe);border-left:3px solid var(--zhe);padding-left:18px;margin:24px 0">旧的是内容，新的应该是印刷。<br>我们要的不是“文物感”，是“刚下印刷机的那种硬”。</p>
+
+  <div class="palette">
+    <div class="sw" style="background:#17130e;color:#efe7d6"><b>玄墨</b>#17130E<br>骨线 / 剪影</div>
+    <div class="sw" style="background:#efe7d6;color:#17130e;border-right:1px solid var(--line)"><b>石灰</b>#EFE7D6<br>纸底 / 留白</div>
+    <div class="sw" style="background:#9e3b2b;color:#f6f0e1"><b>汉陶赭</b>#9E3B2B<br>主色 / 台词</div>
+    <div class="sw" style="background:#c8331f;color:#f6f0e1"><b>朱砂</b>#C8331F<br>暴击 / 判负</div>
+    <div class="sw" style="background:#4c6b5a;color:#f6f0e1"><b>铜绿</b>#4C6B5A<br>增益 / 人情</div>
+    <div class="sw" style="background:#a9832c;color:#f6f0e1"><b>秤星麦</b>#A9832C<br>数值 / 光</div>
+  </div>
+
+  <div class="rules">
+    <div class="rule">
+      <div class="rn">R1</div>
+      <div>
+        <h4>只画侧面</h4>
+        <p>汉画像石里几乎没有正面像，人也都是侧身。于是角色全部侧脸对侧脸，只动两处：<b>一只嘴，一只手</b>。脸是一块石面，没有五官细节，只留一道刻线当眼。这样“说话”就变成机械的一张一合，方言的节奏反而被放大。</p>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rn">R2</div>
+      <div>
+        <h4>只刻不画</h4>
+        <p>每一根线都是一刀，所以只有两档线宽：<b>4px 与 1.5px</b>，没有中间值。没有渐变、没有柔光、没有投影——只有压印和未压印。</p>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rn">R3</div>
+      <div>
+        <h4>方折，不圆角</h4>
+        <p>所有转角 45° 斜切（chamfer），圆角一律禁止。这一条是“刚”的全部来源。<b>柔</b>只由一个元素负责：云气纹。</p>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rn">R4</div>
+      <div>
+        <h4>云气只做“尾”</h4>
+        <p>汉代云气纹不许拿来当装饰边框——那是文创的做法。它只有一个用途：<b>跟在声音和动作的后面</b>。谁说完话，云气就从谁的嘴角长出来、拖长、散掉。它是“拖腔”的可视化，也是画面的柔。</p>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rn">R5</div>
+      <div>
+        <h4>双色错版</h4>
+        <p>墨版与赭版故意偏移 <b>2–3px</b>，用正片叠底。所有文字、图形都是“印歪了一点”的。这个偏移量是“手工感”的唯一凭证，也是让画面不老气的关键。</p>
+      </div>
+    </div>
+    <div class="rule">
+      <div class="rn">R6</div>
+      <div>
+        <h4>刚柔配比 8 : 2</h4>
+        <p>画面 80% 是硬边直线与方折（刚），20% 是云气与拖尾（柔）。<b>超过两成就甜，低于一成则燥。</b>这是“古朴又直给、刚柔并济”的量化定义。</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--font-d);font-size:19px;margin:44px 0 4px;letter-spacing:.06em">动态节奏：快打、停一拍、慢收</h3>
+  <p style="font-size:13.5px;color:var(--ink3);margin-bottom:18px">徐州话的听觉就是“字硬、尾长”：起音很冲，落点很实，但最后一个字往往拖着。动效完全照这个来。</p>
+
+  <div class="timeline">
+    <div class="tl-row">
+      <div>出手 100–140ms</div>
+      <div>硬切到位，<em>0 缓动回弹</em>。像印章砸下去，不是弹簧弹出去。曲线固定 <code>cubic-bezier(.9,0,.1,1)</code>，全片只用这一条。</div>
+    </div>
+    <div class="tl-row">
+      <div>停一拍 80–120ms</div>
+      <div>全画面静止，只留一个墨点在扩散。<em>重量感全部来自这个停顿</em>——不是来自特效。成交与暴击时拉长到 300ms。</div>
+    </div>
+    <div class="tl-row">
+      <div>收招 600–900ms</div>
+      <div>云气拖尾，缓出。这一段的长度不受控于节奏，而受控于<b>这个字的声调有多长</b>——阴平最长，去声几乎不拖。</div>
+    </div>
+    <div class="tl-row">
+      <div>主体 12fps</div>
+      <div>人物与场景走“一拍二”（on twos），像老动画；但数字、秤星、粒子走 60fps。<em>印刷的顿感 × 屏幕的顺滑</em>，这个冲突就是“古朴 + 现代”的技术解法。</div>
+    </div>
+    <div class="tl-row">
+      <div>镜头不动</div>
+      <div>不推、不拉、不摇。唯一的运动是<b>横向抽 4px 的错版抖动</b>（打击帧）与画面上方一道缓慢横移的日影（＝时间）。镜头越死，人越紧。</div>
+    </div>
+  </div>
+
+  <h3 style="font-family:var(--font-d);font-size:19px;margin:44px 0 10px;letter-spacing:.06em">字体与界面</h3>
+  <p>双字体系统，反差即叙事：<b>标题与数值</b>用汉隶骨架的方整体（张迁碑一路，横平竖直、波磔收锋），做 UI 与招式名；<b>台词</b>用手写价签体（马克笔／粉笔），像摊主随手写的那块纸板。碑刻＝规则，手写＝人。两种字体永远不同时出现在同一行。</p>
+  <p>版式取<b>竖屏 9:16</b>，三段固定：上＝日头（时间条），中＝对峙（两张侧脸与中间那杆秤），下＝台词与招式槽。所有 UI 都用徐州话命名，<b>不写一个普通话功能词</b>——没有“开始游戏”，只有“开集”；没有“血量”，只有“心气”。</p>
+</section>
+
+<!-- ================= 07 试打 ================= -->
+<section id="s7">
+  <div class="sec-head">
+    <div class="sec-num">07</div>
+    <h2 class="sec-title">试打一局：机制跑一遍给你看</h2>
+    <div class="sec-note">PROTOTYPE</div>
+  </div>
+  <p class="lead">下面是这套机制的最小可玩原型（纯逻辑，不是最终美术）。你会看到：<b>价越砍越低，但心气不一定掉；心气掉了，价也不一定低</b>——这个“两难”就是可玩性的全部来源。</p>
+
+  <div class="game">
+    <div class="game-top">
+      <span>第 03 集 · 杂货摊「老抠」· 下午两点</span>
+      <span id="gameState">日头 3 / 5</span>
+    </div>
+    <div class="game-stage">
+      <div class="side">
+        <div class="who">你 · 半熟</div>
+        <div class="face" id="faceYou">买</div>
+        <div class="say" id="sayYou">这黄子咋卖？</div>
+      </div>
+      <div class="pivot">
+        <div class="q-lab">他开的价</div>
+        <div class="quote" id="quote">128</div>
+        <div class="beam" id="beam" style="transform:rotate(-8deg)"></div>
+        <div class="q-lab" id="floorLab">底价 62</div>
+      </div>
+      <div class="side">
+        <div class="who">老抠 · 绷住</div>
+        <div class="face" id="faceHim">摊</div>
+        <div class="say" id="sayHim">进价就这个数，我真不挣你钱。</div>
+      </div>
+    </div>
+    <div class="game-bars">
+      <div>
+        <div class="bar-lab"><span>心气 · 秤星</span><span id="qiLab">16 / 16</span></div>
+        <div class="bar"><i id="qiBar" style="width:100%"></i></div>
+      </div>
+      <div>
+        <div class="bar-lab"><span>敞亮 · 面子</span><span id="mzLab">45</span></div>
+        <div class="bar m"><i id="mzBar" style="width:45%"></i></div>
+      </div>
+    </div>
+    <div class="moves">
+      <button class="btn" data-mv="c">沉底价 <small style="opacity:.55">阴平</small></button>
+      <button class="btn" data-mv="d">顶回去 <small style="opacity:.55">阳平</small></button>
+      <button class="btn" data-mv="t">挑一句 <small style="opacity:.55">上声</small></button>
+      <button class="btn" data-mv="z">一锤子 <small style="opacity:.55">去声</small></button>
+      <button class="btn red" data-mv="b">白Zao我</button>
+      <button class="btn" data-mv="l">拉呱</button>
+      <button class="btn" data-mv="s">司维</button>
+      <button class="btn red" data-mv="x" id="btnBan">办肆</button>
+      <button class="btn" data-mv="r" id="btnRe" style="margin-left:auto">重开一集</button>
+    </div>
+    <div class="game-log" id="log"><p>你站在摊前。他报了个“128”，秤杆翘着——<span class="hl">虚的</span>。</p></div>
+  </div>
+  <p style="font-size:11.5px;color:var(--ink3)">提示：先「沉底价」锚定，再用「白Zao我」拆穿虚高（他的价是虚的）；「挑一句」掉心气但会抬价；心气 ≤ 2 星时「办肆」解锁——但它要你认下当时的价。</p>
+</section>
+
+<!-- ================= 08 落地 ================= -->
+<section id="s8">
+  <div class="sec-head">
+    <div class="sec-num">08</div>
+    <h2 class="sec-title">落地：六集，四种形态，先做哪一个</h2>
+    <div class="sec-note">DELIVERY</div>
+  </div>
+
+  <p class="lead">六集对应六个词，也正是六种不同的“赢法”。每集 45–75 秒竖屏，一集一个招式，集末留一个“下一集你学哪句”。</p>
+
+  <div class="eps">
+    <div class="ep"><div class="en">EP 01</div><h4>沉底价</h4><p>羊肉摊 · 一刀准。开局第一课：先把底锚死。<b>对应阴平。</b></p></div>
+    <div class="ep"><div class="en">EP 02</div><h4>顶回去</h4><p>杂货摊 · 老抠。学会不接话，比学会说话更重要。<b>对应阳平。</b></p></div>
+    <div class="ep"><div class="en">EP 03</div><h4>挑一句</h4><p>炸丸子 · 油锅西施。先破节奏，再破价。<b>对应上声。</b></p></div>
+    <div class="ep"><div class="en">EP 04</div><h4>拉呱</h4><p>自卖头 · 自家种的。人情局，硬招全部反弹。</p></div>
+    <div class="ep"><div class="en">EP 05</div><h4>司维</h4><p>修秤摊。全片唯一慢下来的一集，讲“校准”这件事本身。</p></div>
+    <div class="ep"><div class="en">EP 06</div><h4>办肆</h4><p>收摊前 · 最后一把。赞美即认输，全系列的情绪落点。<b>对应去声。</b></p></div>
+  </div>
+
+  <div class="forms">
+    <div class="form">
+      <h4>① 竖屏短片 ×6</h4>
+      <p>主传播形态。9:16，12fps 主体，原生徐州话配音＋硬字幕（字幕按声调做高低位，不做波浪线）。</p>
+      <p>成本最低、传播最快，适合先做 EP01 打样。</p>
+      <span class="pick">→ 打样首选</span>
+    </div>
+    <div class="form">
+      <h4>② H5「对一句」</h4>
+      <p>打开麦克风，屏幕给你一条调值曲线，你用徐州话说这个词。说得准，你的角色就打出一招；说不准，招式哑火、被叫“半熟”。</p>
+      <p>这是唯一能把“方言学习”闭环的形态，也是作品集／奖项最吃的那一口。</p>
+      <span class="pick">→ 差异化最强</span>
+    </div>
+    <div class="form">
+      <h4>③ 展陈装置</h4>
+      <p>一支真的杆秤吊在空间里，秤杆上装 16 颗灯。观众对着话筒说词，说对了秤杆抬起、灯亮一颗；说错了秤砣下沉。</p>
+      <p>实物 + 投影，把“十六两”从屏幕里拿出来。</p>
+      <span class="pick">→ 适合展览／评审现场</span>
+    </div>
+    <div class="form">
+      <h4>④ 字体与海报延展</h4>
+      <p>以张迁碑骨架重做一套“招名字体”，每个字带 2–3px 错版描边。可做 16 张秤星系列海报（一星一张）。</p>
+      <p>成本最低的视觉资产沉淀。</p>
+      <span class="pick">→ 顺带做</span>
+    </div>
+  </div>
+
+  <p style="margin-top:22px"><b>建议路径：</b>先做 <b>H5「对一句」的 EP01 单集</b>（一个招式、一个摊、一次录音判定），把“声调＝手感”这件事验证掉；验证成立后，短片与展陈都是它的转译。反过来做（先拍六集短片）风险很大——如果观众没听出四声的差别，整件作品就退化成一组好看的海报。</p>
+</section>
+
+<!-- ================= 09 校准 ================= -->
+<section id="s9">
+  <div class="sec-head">
+    <div class="sec-num">09</div>
+    <h2 class="sec-title">校准清单：三件必须落地前解决的事</h2>
+    <div class="sec-note">RISK &amp; CHECK</div>
+  </div>
+
+  <div class="checklist">
+    <h3>语言校准（最重要）</h3>
+    <ul>
+      <li><b>调值分片。</b>徐州市区为 阴平213／阳平55／上声35／去声51；但丰沛片与睢邳片有明显差异（尤其第一声：东部低平、西部接近普通话三声）。<b>建议全案只锁定市区口音</b>，并在片尾标注方言点，不要混用。</li>
+      <li><b>「白Zao我」的 Zao 本字未定。</b>方案中一律写作“白Zao我”，不做汉字臆断。请本地顾问给出通行写法或直接用拼音，避免被指“乱造字”。</li>
+      <li><b>扩展词逐个复核。</b>「恣儿／腌臜·恶影／麻爪／摞挑子／半熟／齐整·板正」在徐州及周边（鲁南、皖北、豫东）用法有细微差别，需本地人确认语义与语气轻重，尤其<b>“半熟”是骂人话</b>，用作 debuff 名称时要确认不冒犯。</li>
+      <li><b>请三位本地人（老／中／青各一）录 20 个词</b>，做一次调值比对；青年组的口音往往已经向普通话靠拢，正好可以拿来做“普通话 vs 徐州话”切换的对照组。</li>
+    </ul>
+  </div>
+
+  <div class="checklist">
+    <h3>伦理与调性</h3>
+    <ul>
+      <li><b>摊主是主角，不是笑料。</b>五个摊主必须各有本事、各有体面；他们赢的时候也要好看。一旦把他们拍成“土味 NPC”，整个作品就废了。</li>
+      <li><b>不配搞笑音效。</b>方言的喜感来自语言本身，加鬼畜音效、加“土味 BGM”是最快的自毁方式。声音只用现场采样：秤砣、油锅、吆喝、塑料袋。</li>
+      <li><b>“博弈”是游戏，不是骂战。</b>「白Zao我」是拆穿，不是羞辱；「办肆」是服气，不是嘲讽。整个系统要让人砍完价还想跟摊主拉两句呱。</li>
+      <li><b>实拍需授权。</b>马山大集为实际经营场所，若含实拍素材，需与摊主、村集体（马山村）沟通肖像与场地使用。</li>
+    </ul>
+  </div>
+
+  <div class="checklist" style="border-color:var(--tong);background:rgba(76,107,90,.05)">
+    <h3 style="color:var(--tong)">还可以再往前走一步（备选升级）</h3>
+    <ul>
+      <li><b>把“秤”做成全系列的图腾。</b>每集片头都是同一支秤，秤杆上多一颗星——六集看完，十六星补齐。这是最省钱的“系列感”。</li>
+      <li><b>加一个反向结局。</b>玩家可以主动“多给两块钱”，换摊主一句“这闺女儿／小小子敞亮”。此时秤星不动，敞亮爆表——<b>赢法不止一种，这是徐州人真正在意的东西</b>。</li>
+      <li><b>声音可视化。</b>四声的调值曲线可以直接长成汉画像石里的云气纹走向，让“声音”与“纹样”是同一套曲线——这是最容易在展览里做出“啊”一声的设计。</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <span>十六两 · 徐州方言大集对招 ／ 概念方案 v1</span>
+  <span>语言依据：中原官话徐淮片（徐州市区）⋅ 调值 213 / 55 / 35 / 51</span>
+</footer>
+
+</div>
+
+<script>
+/* ---------- 四声卡片 ---------- */
+document.querySelectorAll('.tone').forEach(function(el){
+  el.addEventListener('click', function(){
+    var on = el.classList.contains('on');
+    document.querySelectorAll('.tone').forEach(function(o){o.classList.remove('on');});
+    if(!on) el.classList.add('on');
+  });
+});
+
+/* ---------- 秤星 ---------- */
+var starWrap = document.getElementById('stars');
+var groups = [
+  {n:7, label:'北斗七星 · 死'},
+  {n:6, label:'南斗六星 · 生'},
+  {n:3, label:'福 · 禄 · 寿'}
+];
+function buildStars(){
+  starWrap.innerHTML = '';
+  groups.forEach(function(g){
+    var d = document.createElement('div');
+    d.className = 'grp';
+    for(var i=0;i<g.n;i++){
+      var s = document.createElement('div');
+      s.className = 'star';
+      d.appendChild(s);
+    }
+    starWrap.appendChild(d);
+  });
+}
+buildStars();
+var shortCount = 0;
+document.getElementById('btnShort').addEventListener('click', function(){
+  var all = Array.prototype.slice.call(starWrap.querySelectorAll('.star:not(.off)'));
+  if(!all.length) return;
+  var last = all[all.length-1];
+  last.classList.add('hit');
+  setTimeout(function(){ last.classList.remove('hit'); last.classList.add('off'); }, 320);
+  shortCount++;
+  var beam = document.getElementById('beamG');
+  beam.style.transform = 'rotate(' + (-4 - shortCount*3) + 'deg)';
+});
+document.getElementById('btnResetStar').addEventListener('click', function(){
+  shortCount = 0;
+  buildStars();
+  document.getElementById('beamG').style.transform = 'rotate(-4deg)';
+});
+
+/* ---------- 试打一局 ---------- */
+var G;
+function resetGame(){
+  G = {quote:128, floor:62, qi:16, mz:45, day:3, over:false, ban:false, told:false};
+  document.getElementById('log').innerHTML = '<p>你站在摊前。他报了个“128”，秤杆翘着——<span class="hl">虚的</span>。</p>';
+  document.getElementById('sayYou').textContent = '这黄子咋卖？';
+  document.getElementById('sayHim').textContent = '进价就这个数，我真不挣你钱。';
+  document.getElementById('btnBan').disabled = true;
+  render();
+}
+function render(){
+  document.getElementById('quote').textContent = G.quote;
+  document.getElementById('qiLab').textContent = G.qi + ' / 16';
+  document.getElementById('qiBar').style.width = (G.qi/16*100) + '%';
+  document.getElementById('mzLab').textContent = G.mz;
+  document.getElementById('mzBar').style.width = Math.max(0,G.mz) + '%';
+  document.getElementById('gameState').textContent = '日头 ' + G.day + ' / 5';
+  document.getElementById('floorLab').textContent = '底价 ' + G.floor;
+  var tilt = -8 + (G.quote - G.floor) / (128 - G.floor) * 14;
+  document.getElementById('beam').style.transform = 'rotate(' + tilt + 'deg)';
+  document.getElementById('btnBan').disabled = !(G.ban && !G.over);
+  document.getElementById('faceHim').textContent = G.qi <= 4 ? '软' : (G.qi <= 9 ? '绷' : '摊');
+}
+function log(t){
+  var p = document.createElement('p');
+  p.innerHTML = t;
+  var box = document.getElementById('log');
+  box.appendChild(p);
+  box.scrollTop = box.scrollHeight;
+}
+function clamp(){
+  if(G.qi < 0) G.qi = 0;
+  if(G.qi > 16) G.qi = 16;
+  if(G.mz < 0) G.mz = 0;
+  if(G.mz > 100) G.mz = 100;
+}
+function checkEnd(){
+  if(G.over) return;
+  if(G.mz <= 0){
+    G.over = true;
+    log('<span class="hl">掉面儿了。</span>旁边看热闹的人笑了一声，你什么都没买就走了。这一集，输。');
+  } else if(G.day >= 6){
+    G.over = true;
+    log('<span class="hl">收摊了。</span>他卷起帆布，你手里还是空的。时间是你唯一的敌人。');
+  } else if(G.qi <= 2){
+    G.ban = true;
+    log('他眼神飘了一下，秤杆往下沉了点——<span class="hl">服软了</span>。「办肆」解锁。');
+  }
+}
+function act(k){
+  if(G.over) return;
+  var bonus = G.mz >= 70 ? 1 : 0;
+  if(k === 'c'){
+    var q = 10 + bonus*4, d = 2 + bonus;
+    G.quote -= q; G.qi -= d; G.mz -= 2;
+    G.sayYou = '“' + (G.quote-14) + '，就这个数。”';
+    G.sayHim = '“你这不是砍价，你这是抢。”';
+    log('<span class="hl">沉底价</span> · 阴平213。你把价锚到 ' + (G.quote-8) + '，他心气 −' + d + '，价 −' + q + '。');
+  } else if(k === 'd'){
+    G.qi += 1; G.quote -= 2; G.mz += 8; G.day += 0.5;
+    G.sayYou = '“嗯。128。”';
+    G.sayHim = '“……你这人。”';
+    log('<span class="hl">顶回去</span> · 阳平55。你不接话，只把数字原样顶回去。心气 +1，敞亮 +8，但日头走了一格。');
+  } else if(k === 't'){
+    G.qi -= 3; G.quote += 4; G.mz -= 6;
+    G.sayYou = '“这黄子看着可不齐整啊。”';
+    G.sayHim = '“哎你这话说的——那你说多少？”';
+    log('<span class="hl">挑一句</span> · 上声35。他被架住了，心气 −3，但恼了，价往回抬 4，你掉了 6 点敞亮。');
+  } else if(k === 'z'){
+    if(G.qi <= 3){
+      G.over = true;
+      log('<span class="hl">一锤子。</span>掌落在秤盘上，他没再说话，装袋、递过来。成交价 ' + G.quote + '。');
+    } else {
+      G.qi -= 1; G.quote -= 4; G.mz -= 12;
+      G.sayYou = '“不要了。”';
+      G.sayHim = '“哎哎哎——回来回来。”';
+      log('<span class="hl">一锤子</span> · 去声51。你转身就走。他心气 −1，价 −4，但你在众人面前掉了 12 点面子。');
+    }
+  } else if(k === 'b'){
+    if(G.told){
+      log('这句话一场只能用一次。再用，就成了咋呼。');
+      render(); return;
+    }
+    G.told = true;
+    G.qi -= 3; G.mz += 6; G.quote -= 8;
+    G.sayYou = '“白Zao我。这价你虚了两成。”';
+    G.sayHim = '“……你咋知道的。”';
+    log('<span class="hl">白Zao我</span> · 拆穿虚高。虚的那两成原样弹回去：心气 −3，价 −8，敞亮 +6。');
+  } else if(k === 'l'){
+    G.qi += 2; G.mz += 4; G.day += 1;
+    G.sayYou = '“大爷，今年这雨下得咋样？”';
+    G.sayHim = '“旱。贵就贵在这上头。”';
+    log('<span class="hl">拉呱</span> · 心气 +2，敞亮 +4，还问出了行情。但日头走了一格——你买的是时间。');
+  } else if(k === 's'){
+    G.qi += 2; G.quote += 8;
+    G.sayYou = '“师傅，借您家伙校一下秤。”';
+    G.sayHim = '“秤准着呢。”';
+    log('<span class="hl">司维</span> · 补两颗秤星，但分了神，价又回去 8 —— 回血是要花钱的。');
+  } else if(k === 'x'){
+    if(G.qi <= 2 && !G.over){
+      G.over = true;
+      log('<span class="hl">“办肆！”</span>你竖了个大拇指。周围跟着喊了一声。秤砣落下，秤杆弹直——你按 ' + G.quote + ' 买走了。');
+      G.mz = 100;
+    }
+  } else if(k === 'r'){
+    resetGame(); return;
+  }
+  clamp();
+  checkEnd();
+  document.getElementById('sayYou').textContent = G.sayYou;
+  document.getElementById('sayHim').textContent = G.sayHim;
+  render();
+}
+document.querySelectorAll('.moves .btn').forEach(function(b){
+  b.addEventListener('click', function(){ act(b.getAttribute('data-mv')); });
+});
+resetGame();
+</script>
+</body>
+</html>
