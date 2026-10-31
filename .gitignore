@@ -2,3 +2,8 @@ node_modules/
 *.log
 .DS_Store
 
+
+# 截图用的一次性副本，不再入库（改用 index.html?y=<px>）
+_v*.html
+.check.js
+.cdp-profile*/
