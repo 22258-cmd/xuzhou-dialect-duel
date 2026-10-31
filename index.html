@@ -930,6 +930,15 @@ footer{margin-top:80px;border-top:1px solid var(--ink);padding-top:22px;display:
 </div>
 
 <script>
+/* 截图定位：index.html?y=2300 直接把整页上移，替代以前 6 份只差一行 style 的 _v*.html 副本 */
+(function () {
+  var y = new URLSearchParams(location.search).get('y');
+  var px = y === null ? NaN : parseInt(y, 10);
+  if (Number.isFinite(px) && px > 0) {
+    document.body.style.position = 'relative';
+    document.body.style.top = '-' + px + 'px';
+  }
+})();
 /* ---------- 四声卡片 ---------- */
 document.querySelectorAll('.tone').forEach(function(el){
   el.addEventListener('click', function(){
@@ -978,9 +987,12 @@ document.getElementById('btnResetStar').addEventListener('click', function(){
 });
 
 /* ---------- 试打一局 ---------- */
+/* 日头总格数：显示与判负必须共用这一个数，否则会出现「日头 5.5 / 5」这种自相矛盾的画面 */
+var DAY_LIMIT = 5;
+var OPEN_PRICE = 128;   // 摊主开口价，也是秤杆的满刻度
 var G;
 function resetGame(){
-  G = {quote:128, floor:62, qi:16, mz:45, day:3, over:false, ban:false, told:false};
+  G = {quote:OPEN_PRICE, floor:62, qi:16, mz:45, day:3, over:false, ban:false, told:false};
   document.getElementById('log').innerHTML = '<p>你站在摊前。他报了个“128”，秤杆翘着——<span class="hl">虚的</span>。</p>';
   document.getElementById('sayYou').textContent = '这黄子咋卖？';
   document.getElementById('sayHim').textContent = '进价就这个数，我真不挣你钱。';
@@ -993,9 +1005,9 @@ function render(){
   document.getElementById('qiBar').style.width = (G.qi/16*100) + '%';
   document.getElementById('mzLab').textContent = G.mz;
   document.getElementById('mzBar').style.width = Math.max(0,G.mz) + '%';
-  document.getElementById('gameState').textContent = '日头 ' + G.day + ' / 5';
+  document.getElementById('gameState').textContent = '日头 ' + Math.min(G.day, DAY_LIMIT) + ' / ' + DAY_LIMIT;
   document.getElementById('floorLab').textContent = '底价 ' + G.floor;
-  var tilt = -8 + (G.quote - G.floor) / (128 - G.floor) * 14;
+  var tilt = -8 + (G.quote - G.floor) / ((OPEN_PRICE - G.floor) || 1) * 14;
   document.getElementById('beam').style.transform = 'rotate(' + tilt + 'deg)';
   document.getElementById('btnBan').disabled = !(G.ban && !G.over);
   document.getElementById('faceHim').textContent = G.qi <= 4 ? '软' : (G.qi <= 9 ? '绷' : '摊');
@@ -1012,13 +1024,18 @@ function clamp(){
   if(G.qi > 16) G.qi = 16;
   if(G.mz < 0) G.mz = 0;
   if(G.mz > 100) G.mz = 100;
+  /* 底价是地板，不是参考线。
+     此前这里只夹心气与面儿，而 act() 除了 over 之外没有任何出招次数限制，
+     于是连按「沉底价」可以把 128 的价一路打到**负数**，再用「办肆」按负价成交。 */
+  if(G.quote < G.floor) G.quote = G.floor;
+  if(G.quote > 128) G.quote = 128;   // 「司维」会把价顶回去，但不应高过他开口的价
 }
 function checkEnd(){
   if(G.over) return;
   if(G.mz <= 0){
     G.over = true;
     log('<span class="hl">掉面儿了。</span>旁边看热闹的人笑了一声，你什么都没买就走了。这一集，输。');
-  } else if(G.day >= 6){
+  } else if(G.day > DAY_LIMIT){
     G.over = true;
     log('<span class="hl">收摊了。</span>他卷起帆布，你手里还是空的。时间是你唯一的敌人。');
   } else if(G.qi <= 2){
@@ -1027,16 +1044,26 @@ function checkEnd(){
   }
 }
 function act(k){
+  /* 「重开一集」必须排在 over 闸门之前：否则终局之后这颗按钮彻底失效，
+     玩家只能刷新页面（实测：连按沉底价打到收摊，再点重开一集没有任何反应）。 */
+  if(k === 'r'){ resetGame(); return; }
   if(G.over) return;
   var bonus = G.mz >= 70 ? 1 : 0;
   if(k === 'c'){
     var q = 10 + bonus*4, d = 2 + bonus;
     G.quote -= q; G.qi -= d; G.mz -= 2;
-    G.sayYou = '“' + (G.quote-14) + '，就这个数。”';
+    /* 先把价夹到底价再写台词：clamp() 在 act() 末尾才跑，
+       台词若用夹之前的数，就会念出一个画面上不存在的价（实测台词说 -12、报价栏显示 62）。 */
+    if(G.quote < G.floor) G.quote = G.floor;
+    /* 台词与旁白此前各自演算一个价（quote-14 / quote-8），而真实扣减是 q ——
+       同一招在同一屏上出现三个互不相等的价格。现在一律用扣减后的实际价。 */
+    G.sayYou = '“' + G.quote + '，就这个数。”';
     G.sayHim = '“你这不是砍价，你这是抢。”';
-    log('<span class="hl">沉底价</span> · 阴平213。你把价锚到 ' + (G.quote-8) + '，他心气 −' + d + '，价 −' + q + '。');
+    log('<span class="hl">沉底价</span> · 阴平213。你把价锚到 ' + G.quote + '，他心气 −' + d + '，价 −' + q + '。');
   } else if(k === 'd'){
-    G.qi += 1; G.quote -= 2; G.mz += 8; G.day += 0.5;
+    /* 台词说「日头走了一格」，代码却加 0.5 —— 屏上会显示「日头 3.5 / 5」。
+       按台词与标签的口径改成整数一格。 */
+    G.qi += 1; G.quote -= 2; G.mz += 8; G.day += 1;
     G.sayYou = '“嗯。128。”';
     G.sayHim = '“……你这人。”';
     log('<span class="hl">顶回去</span> · 阳平55。你不接话，只把数字原样顶回去。心气 +1，敞亮 +8，但日头走了一格。');
@@ -1081,8 +1108,6 @@ function act(k){
       log('<span class="hl">“办肆！”</span>你竖了个大拇指。周围跟着喊了一声。秤砣落下，秤杆弹直——你按 ' + G.quote + ' 买走了。');
       G.mz = 100;
     }
-  } else if(k === 'r'){
-    resetGame(); return;
   }
   clamp();
   checkEnd();
